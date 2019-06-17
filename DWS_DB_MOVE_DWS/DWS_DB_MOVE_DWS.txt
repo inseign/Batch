@@ -1,0 +1,31 @@
+@echo off
+setlocal enabledelayedexpansion
+
+
+for /R "T:\16 - Construction\16.20 DWS Database\Returned DWS\Received Signed\" %%G in (*FI-*) do (
+
+set l=%%~nG
+set m=!l:~0,7!
+set o=T:\10 - Contracts\10.02 - Variations\Field Instructions\!m!\DWS
+
+if not exist "!o!" mkdir "!o!"
+xcopy /D /Y "T:\16 - Construction\16.20 DWS Database\Returned DWS\Received Signed\!l!.pdf" "!o!"
+
+)
+
+
+
+for /R "T:\16 - Construction\16.20 DWS Database\Returned DWS\Received Signed\" %%G in (*SI-*) do (
+
+set h=%%~nG
+set i=!h:~0,7!
+set k=T:\10 - Contracts\10.02 - Variations\Site Instructions\!i!\DWS
+
+if not exist "!k!" mkdir "!k!"
+xcopy /D /Y "T:\16 - Construction\16.20 DWS Database\Returned DWS\Received Signed\!h!.pdf" "!k!"
+
+)
+
+
+echo "Operation Complete"	
+pause
